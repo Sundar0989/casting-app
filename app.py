@@ -20,6 +20,10 @@ def create_app(test_config=None):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PATCH,POST,DELETE')
     return response
 
+  @app.route('/')
+  def index():
+    return jsonify({"message": "Welcome to the Casting Agency API"})
+
   # Get request for actors end point
   @app.route('/actors', methods=['GET'])
   def get_actors():

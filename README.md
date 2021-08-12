@@ -1,7 +1,7 @@
 # Casting Agency
 
 ## Link to Heroku login
-https://casting-heroku-app.herokuapp.com/actors
+https://casting-heroku-app.herokuapp.com/actors   
 https://casting-heroku-app.herokuapp.com/movies
 
 ## Users, Roles & Tokens
@@ -81,7 +81,7 @@ curl https://casting-heroku-app.herokuapp.com/movies
 
 ```
 {
-   "actors":[
+   "movies":[
       {
          "id":1,
          "release_date":"Fri, 19 Dec 1997 00:00:00 GMT",
@@ -92,5 +92,145 @@ curl https://casting-heroku-app.herokuapp.com/movies
 }
 ```
 
+### DELETE '/actors/id'
+   
+- Delete an actor from __Actor__ database
+- Request Arguments: Bearer token and Actor Id
+- Returns: Json object with deleted actor id and success flag as __True__. 
+
+#### Sample    
+   
+```bash
+curl -X DELETE https://casting-heroku-app.herokuapp.com/actors/1 -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN"
+```
+   
+```   
+{
+   "actors":1,
+   "success":true
+}
+```
+
+
+### POST '/actors'
+- Insert a new actor into the __Actor__ database
+- Request Arguments: Bearer token and Actor json
+- Returns: Success flag and inserted Actor details. 
+
+#### Sample 
+
+```bash
+curl -X POST https://casting-heroku-app.herokuapp.com/actors -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN" -H "Content-Type: application/json" -d '{"name": "Tom Hanks", "age": 65, "gender": "Male"}'
+```
+
+```
+{
+   "actors":[
+      {
+         "age":65,
+         "gender":"Male",
+         "id":3,
+         "name":"Tom Hanks"
+      }
+   ],
+   "success":true
+}
+```
+
+### PATCH '/actors/id'
+- Update an existing actor into the __Actor__ database
+- Request Arguments: Bearer token and update Actor json
+- Returns: Success flag and updated Actor details. 
+
+#### Sample 
+
+Changing the actor name from Tom Hanks to Thomas Jeffrey Hanks
+
+```bash
+curl -X PATCH https://casting-heroku-app.herokuapp.com/actors/3 -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN" -H "Content-Type: application/json" -d '{"name": "Thomas Jeffrey Hanks", "age": 65, "gender": "Male"}'
+```
+
+```
+{
+   "actors":[
+      {
+         "age":65,
+         "gender":"Male",
+         "id":3,
+         "name":"Thomas Jeffrey Hanks"
+      }
+   ],
+   "success":true
+}
+```
+
+### POST '/movies'
+- Insert a new movie into the __Movie__ database
+- Request Arguments: Bearer token and Movie json
+- Returns: Success flag and inserted Movie details. 
+
+#### Sample 
+
+```bash
+curl -X POST https://casting-heroku-app.herokuapp.com/movies -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN" -H "Content-Type: application/json" -d '{"title": "Parasite", "release_date": "2019-10-05"}'
+```
+
+```
+{
+   "movies":[
+      {
+         "id":2,
+         "release_date":"Sat, 05 Oct 2019 00:00:00 GMT",
+         "title":"Parasite"
+      }
+   ],
+   "success":true
+}
+```
+
+### PATCH '/movies/id'
+- Update an existing movie into the __Movie__ database
+- Request Arguments: Bearer token and update Movie json
+- Returns: Success flag and updated Movie details. 
+
+#### Sample 
+
+Changing the release date from October 5, 2019 to October 4, 2019
+
+```bash
+curl -X PATCH https://casting-heroku-app.herokuapp.com/movies/2 -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN" -H "Content-Type: application/json" -d '{"title": "Parasite", "release_date": "2019-10-04"}'
+```
+
+```
+{
+   "movies":[
+      {
+         "id":2,
+         "release_date":"Fri, 04 Oct 2019 00:00:00 GMT",
+         "title":"Parasite"
+      }
+   ],
+   "success":true
+}
+```
+
+### DELETE '/movies/id'
+   
+- Delete a movie from __Movie__ database
+- Request Arguments: Bearer token and Movie Id
+- Returns: Json object with deleted movie id and success flag as __True__. 
+
+#### Sample    
+   
+```bash
+curl -X DELETE https://casting-heroku-app.herokuapp.com/movies/2 -H "Authorization: Bearer $EXECUTIVE_PRODUCER_TOKEN"
+```
+   
+```   
+{
+   "movies":2,
+   "success":true
+}
+```
 
 
