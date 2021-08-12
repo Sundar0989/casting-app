@@ -3,7 +3,7 @@ aniso8601==9.0.1
 astroid==2.6.6
 autopep8==1.5.7
 click==8.0.1
-dataclasses==0.8
+dataclasses==0.6
 ecdsa==0.17.0
 Flask==2.0.1
 Flask-Cors==3.0.10
