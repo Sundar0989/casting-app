@@ -42,7 +42,7 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im5qMmttY3Zfd0diNkhsbzlRY0pmViJ9.eyJ
 - Request Arguments: None
 - Returns: An list of dictionary object with a id, name, age, gender. 
 
-### Sample 
+#### Sample 
 
 ```bash
 curl https://casting-heroku-app.herokuapp.com/actors
@@ -73,7 +73,7 @@ curl https://casting-heroku-app.herokuapp.com/actors
 - Request Arguments: None
 - Returns: An list of dictionary object with a title, release_date. 
 
-### Sample 
+#### Sample 
 
 ```bash
 curl https://casting-heroku-app.herokuapp.com/movies
