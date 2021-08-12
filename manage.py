@@ -4,10 +4,8 @@ from app import create_app
 from models import db
 import os
 
-database_path = os.environ.get('SQLALCHEMY_DATABASE_URI')
-
 app = create_app()
-
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 migrate = Migrate(app, db)
 manager = Manager(app)
 
