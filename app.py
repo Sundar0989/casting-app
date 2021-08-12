@@ -43,7 +43,7 @@ def create_app(test_config=None):
     
     return jsonify({
         'success': True,
-        'actors': [movie.format() for movie in movies]
+        'movies': [movie.format() for movie in movies]
     }), 200
 
   # Delete actors
@@ -138,7 +138,7 @@ def create_app(test_config=None):
         actor.update()
         return jsonify({
         'success': True,
-        'drinks': [actor.format()]
+        'actors': [actor.format()]
     }), 200
     except:
         return abort(422)
@@ -159,7 +159,7 @@ def create_app(test_config=None):
         movie.update()
         return jsonify({
         'success': True,
-        'drinks': [movie.format()]
+        'movies': [movie.format()]
     }), 200
     except:
         return abort(422)
